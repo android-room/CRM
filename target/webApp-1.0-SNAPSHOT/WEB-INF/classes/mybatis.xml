@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="jdbc.properties"/>
+<!--    <settings>-->
+<!--        <setting name="logImpl" value="STDOUT_LOGGING"/>-->
+<!--    </settings>-->
+    <typeAliases>
+        <package name="com.settings.domain"/>
+        <package name="com.workbench.domain"/>
+    </typeAliases>
+
+    <environments default="oynn">
+        <environment id="oynn">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/crm?useSSL=false&amp;serverTimezone=UTC"/>
+                <property name="username" value="root"/>
+                <property name="password" value="123456"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+
+    <mappers>
+<!--        <mapper resource="com\settings\dao\UserDao.xml"/>-->
+        <package name="com.settings.dao"/>
+        <package name="com.workbench.dao"/>
+    </mappers>
+</configuration>
